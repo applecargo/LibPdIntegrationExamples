@@ -34,6 +34,11 @@ public class Button2Bang : MonoBehaviour
 	/// The PD patch we're going to communicate with.
 	public LibPdInstance pdPatch;
 
+	void Update()
+	{
+		// pdPatch.SendBang("PlayOn");
+	}
+
 	/// We send a bang when the player steps on the button (enters the collision
 	/// volume).
 	void OnTriggerEnter(Collider other)
@@ -43,13 +48,17 @@ public class Button2Bang : MonoBehaviour
 		//SendBang() function to send a bang to that object from Unity.
 		//
 		//See the BangExample.pd patch for details.
-		pdPatch.SendBang("VolumeUp");
+		// pdPatch.SendBang("VolumeUp");
+		pdPatch.SendBang("LowTone");
+
 	}
 
 	/// We send a different bang when the player steps off the button (leaves
 	/// the collision volume).
 	void OnTriggerExit(Collider other)
 	{
-		pdPatch.SendBang("VolumeDown");
+		// pdPatch.SendBang("VolumeDown");
+		pdPatch.SendBang("HighTone");
+
 	}
 }
