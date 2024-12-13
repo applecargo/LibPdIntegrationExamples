@@ -19,9 +19,9 @@ public class Door : MonoBehaviour {
 	//if player is in range and we're not in build mode
 	if(possible && !uBuildManager.buildMode){
 		//check door key to open/close door
-        if(Input.GetKeyDown(GameObject.Find("uBuildManager").GetComponent<uBuildManager>().doorKey)){
-			open = !open;
-        }
+   //     if(Input.GetKeyDown(GameObject.Find("uBuildManager").GetComponent<uBuildManager>().doorKey)){
+			//open = !open;
+   //     }
     }
        
 	//if door should be open

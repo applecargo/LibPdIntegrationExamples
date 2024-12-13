@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 //piece variables
 [System.Serializable]
-public class piece{
+public class piece
+{
 	public GameObject prefab;
 	public string name;
 	public Sprite image;
@@ -15,9 +16,6 @@ public class piece{
 	public bool furniture;
 	public bool wallpaper;
 	//public string description;
-	//public bool requiresResources;
-	//public string resource;
-	//public float resourceAmount;
 	
 	//button UI of this piece
 	[HideInInspector]
@@ -25,7 +23,8 @@ public class piece{
 }
 
 //face, to detect floor snapping
-public enum face{
+public enum face
+{
 	none, up, down, east, west, north, south
 }
 
@@ -38,9 +37,6 @@ public class uBuildManager : MonoBehaviour {
 	public Color buttonHighlight;
 	public GameObject button;
 	public GameObject piecesList;
-//	public Behaviour[] characterScripts;
-	//public GameObject character;
-	public string doorKey;
 	
 	//not visibible
 	[HideInInspector]
@@ -49,7 +45,6 @@ public class uBuildManager : MonoBehaviour {
 	//variables visible in the inspector (under settings)
 	public string buildModeKey;
 	public string placeKey;
-	public string switchFurnitureModeKey;
 	
 	[TextArea]
 	public string helpTextDefault;
@@ -69,13 +64,10 @@ public class uBuildManager : MonoBehaviour {
 	private int selectedPiece = 0;
 	private GameObject helpText;
 	private face direction;
-	private GameObject doorLabel;
 	private GameObject furnitureLabel;
-	private GameObject resourcesWarningLabel;
 	private float lastX;
 	
 	private int index;
-	private Quaternion camRotation;
 	
 	public static bool buildMode;
 	public static bool furnitureMode;
@@ -85,11 +77,12 @@ public class uBuildManager : MonoBehaviour {
 
 	public Camera cam;
 	
-	void Awake(){
-		//camRotation = Camera.main.gameObject.transform.localRotation;
+	void Awake()
+	{
 		//index = GameObject.FindObjectOfType<SaveAndLoad>().index;
 		
-		foreach(GameObject button in extraButtons){
+		foreach(GameObject button in extraButtons)
+		{
 			button.SetActive(false);
 		}
 	}
@@ -98,10 +91,7 @@ public class uBuildManager : MonoBehaviour {
 	{
 		//Find some objects and show the buttons to select pieces with
 		//helpText = GameObject.Find("help text");
-		//doorLabel = GameObject.Find("Door open/close text");
 		//furnitureLabel = GameObject.Find("Furniture label");
-		//resourcesWarningLabel = GameObject.Find("Resources warning");
-		//resourcesWarningLabel.SetActive(false);
 		addDefaultButtons();
 		
 		if(mobileButtons != null)
@@ -117,9 +107,6 @@ public class uBuildManager : MonoBehaviour {
 		//if(Input.GetKeyDown(buildModeKey) && !EventSystem.current.IsPointerOverGameObject())
 		//	switchBuildMode();
 		
-		//check if door label should be displayed
-		//checkDoorText();
-		
 		//check for buildmode
 		if(buildMode)
 		{
@@ -131,14 +118,9 @@ public class uBuildManager : MonoBehaviour {
 		
 		//if place key is pressed, instantiate new piece (selected one)
 		if(Input.GetKeyDown(placeKey) && !isPlacing && !EventSystem.current.IsPointerOverGameObject())
-			{	
+		{	
 			createPiece();
 		}
-		//else if(Input.GetKeyDown(placeKey) && !isPlacing && !EventSystem.current.IsPointerOverGameObject())
-		//	{
-		//	StartCoroutine(resourcesWarning(selectedPiece));
-		//}
-		
 		
 		RaycastHit hit;
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -330,18 +312,11 @@ public class uBuildManager : MonoBehaviour {
 						//add the duplicate to it's layer
 						GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Add(currentObject);
 						}
-						//if piece is door, disable door collider
-						if(currentObject.transform.Find("Hinge") != null){
-						currentObject.transform.Find("Hinge").gameObject.transform.Find("Door object").gameObject.GetComponent<Collider>().enabled = false;
-						}
+
 						//start placing duplicate
 						isPlacing = true;
 						pieceSelected = null;
 					}
-					//else if(Input.GetKeyDown(KeyCode.LeftControl))
-					//		{
-					//	StartCoroutine(resourcesWarning(type));
-					//}
 		
 					//check if we want to move the piece
 					if(Input.GetKeyDown("m")){
@@ -349,10 +324,7 @@ public class uBuildManager : MonoBehaviour {
 						currentObject = pieceSelected;
 						//disable collider temporarily
 						currentObject.GetComponentInChildren<Collider>().enabled = false;
-						//if piece is door, disable door collider
-						if(currentObject.transform.Find("Hinge") != null){
-						currentObject.transform.Find("Hinge").gameObject.transform.Find("Door object").gameObject.GetComponent<Collider>().enabled = false;
-						}
+
 						//make piece untagged
 						currentObject.tag = "Untagged";
 						//start moving piece
@@ -428,13 +400,8 @@ public class uBuildManager : MonoBehaviour {
 		pieceSelected = null;
 	}
 	
-	public void switchButtons(){
-		furnitureMode = !furnitureMode;
-		
-		switchFurnitureMode(furnitureMode);
-	}
-	
-	void createPiece(){
+	void createPiece()
+	{
 		currentObject = Instantiate(pieces[selectedPiece].prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		
 		//PlayerPrefs.SetFloat(index + " - " + pieces[selectedPiece].resource, PlayerPrefs.GetFloat(index + " - " + pieces[selectedPiece].resource) - pieces[selectedPiece].resourceAmount);
@@ -448,17 +415,14 @@ public class uBuildManager : MonoBehaviour {
 			if(PlayerPrefs.GetInt(index + " - " + "defaultLayer") != 0){
 			GetComponent<Layers>().layers[PlayerPrefs.GetInt(index + " - " + "defaultLayer") - 1].layerPieces.Add(currentObject);
 			}
-			//if object is door, disable door collider
-			if(currentObject.transform.Find("Hinge") != null){
-			currentObject.transform.Find("Hinge").gameObject.transform.Find("Door object").gameObject.GetComponent<Collider>().enabled = false;
-			}
 			
 		//start placing
 		isPlacing = true;
 		pieceSelected = null;
 	}
 	
-	void updateRotation(){
+	void updateRotation()
+	{
 		//if right mouse button gets pressed, rotate the piece 90 degrees
 		//please do not change the rotation angle, this will disturb floor placement
 		if((mobileButtons != null && Input.GetMouseButtonDown(0) && Input.touchCount > 1) || Input.GetMouseButtonDown(1)){
@@ -466,7 +430,8 @@ public class uBuildManager : MonoBehaviour {
 		}
 	}
 	
-	public void buildModeTrue(){
+	public void buildModeTrue()
+	{
 		//set build mode true
 		buildMode = true;
 		
@@ -499,12 +464,14 @@ public class uBuildManager : MonoBehaviour {
 		//	}
 		//}
 		
-		foreach(GameObject button in extraButtons){
+		foreach(GameObject button in extraButtons)
+		{
 			button.SetActive(true);
 		}
 	}
 	
-	public void buildModeFalse(){
+	public void buildModeFalse()
+	{
 		//set build mode false
 		buildMode = false;
 		
@@ -533,12 +500,14 @@ public class uBuildManager : MonoBehaviour {
 		//	}
 		//}
 		
-		foreach(GameObject button in extraButtons){
+		foreach(GameObject button in extraButtons)
+		{
 			button.SetActive(false);
 		}
 	}
 	
-	public void switchBuildMode(){
+	public void switchBuildMode()
+	{
 		//check if build mode key is pressed, mouse is not over UI and the remove layer warning is not active
 		//if(!Layers.removeLayerWarning.activeSelf && GameObject.FindObjectOfType<SaveAndLoad>().doneLoading){
 		//	//change buildmode
@@ -569,10 +538,6 @@ public class uBuildManager : MonoBehaviour {
 		// setRendererSettings(currentObject, null, Color.white);
 		//enable piece collider
 		currentObject.GetComponentInChildren<Collider>().enabled = true;
-			//if piece is door, set door collider true
-			//if(currentObject.transform.Find("Hinge") != null){
-			//currentObject.transform.Find("Hinge").gameObject.transform.Find("Door object").gameObject.GetComponent<Collider>().enabled = true;
-			//}
 		
 		//we're not placing anything anymore
 		isPlacing = false;
@@ -583,9 +548,11 @@ public class uBuildManager : MonoBehaviour {
 		currentObject = null;
 	}
 	
-	void cancel(){
+	void cancel()
+	{
 		//remove piece from it's layer
-		if(currentObject.GetComponent<PieceTrigger>().layer != 0){
+		if(currentObject.GetComponent<PieceTrigger>().layer != 0)
+		{
 			GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Remove(currentObject);
 		}
 		//destroy piece
@@ -596,50 +563,11 @@ public class uBuildManager : MonoBehaviour {
 		//PlayerPrefs.SetFloat(index + " - " + pieces[selectedPiece].resource, PlayerPrefs.GetFloat(index + " - " + pieces[selectedPiece].resource) + pieces[selectedPiece].resourceAmount);
 	}
 	
-	//public void changeCamera(bool fp)
-	//{		
-	//	//if first person camera...
-	//	if(fp){
-	//		//parent the camera to character, give it proper position & rotation and disable movement script
-	//		Camera.main.GetComponent<FollowCharacter>().enabled = true;
-			
-	//		if(Camera.main.GetComponent<CameraMovement>())
-	//			Camera.main.GetComponent<CameraMovement>().enabled = false;
-			
-	//		if(GameObject.FindObjectOfType<SaveAndLoad>().doneLoading){
-	//			//set character scripts true so it can move around
-	//			foreach(Behaviour script in characterScripts){
-	//				script.enabled = true;
-	//			}
-	//		}
-	//		else{
-	//			//disable character script to make sure it won't move while building
-	//			foreach(Behaviour script in characterScripts){
-	//				script.enabled = false;
-	//			}
-	//		}
-	//	}
-	//	else{
-	//		if(Camera.main.GetComponent<CameraMovement>()){
-	//			Camera.main.GetComponent<CameraMovement>().enabled = true;
-	//		}
-	//		else{
-	//			Camera.main.gameObject.transform.localPosition = Vector3.zero;
-	//			Camera.main.gameObject.transform.localRotation = camRotation;
-	//		}
-			
-	//		Camera.main.GetComponent<FollowCharacter>().enabled = false;
-			
-	//		//disable character script to make sure it won't move while building
-	//		foreach(Behaviour script in characterScripts){
-	//			script.enabled = false;
-	//		}
-	//	}
-	//}
-	
-	void addDefaultButtons(){
+	void addDefaultButtons()
+	{
 		//for all piece types...
-		for(int i = 0; i < pieces.Count; i++){
+		for(int i = 0; i < pieces.Count; i++)
+		{
 			//add a button to the list of buttons
 			GameObject newButton = Instantiate(button);
 			RectTransform rectTransform = newButton.GetComponent<RectTransform>();
@@ -652,20 +580,14 @@ public class uBuildManager : MonoBehaviour {
 			newButton.GetComponent<Image>().sprite = pieces[i].image;
 			
 			//only enable outline for the first button
-			if(i == 0){
+			if(i == 0)
+			{
 				newButton.GetComponent<Outline>().enabled = true;
 			}
-			else{
+			else
+			{
 				newButton.GetComponent<Outline>().enabled = false;	
 			}
-			
-			//set piece description
-			//if(!pieces[i].requiresResources){
-			//	newButton.transform.Find("Description").gameObject.GetComponentInChildren<Text>().text = pieces[i].description;
-			//}
-			//else{
-			//	newButton.transform.Find("Description").gameObject.GetComponentInChildren<Text>().text = pieces[i].description + "\n\n<b>Requires " + pieces[i].resourceAmount + " " + pieces[i].resource + "</b>";
-			//}
 			
 			//set button name to its position in the list(important for the button to work later on)
 			newButton.name = "" + i;
@@ -676,13 +598,11 @@ public class uBuildManager : MonoBehaviour {
 			//this is the new button ui
 			pieces[i].button = newButton;
 		}
-		
-		//set furnituremode not active
-		switchFurnitureMode(furnitureMode);
 	}
 	
 	//update the help text
-	void updateHelpText(){
+	void updateHelpText()
+	{
 		////show normal help text
 		//if(pieceSelected == null && !isPlacing){
 		//	helpText.GetComponent<Text>().text = "" + helpTextDefault;
@@ -698,7 +618,8 @@ public class uBuildManager : MonoBehaviour {
 	}
 	
 	//return faces that were hit to place floors
-	static face GetHitFace(RaycastHit hit){
+	static face GetHitFace(RaycastHit hit)
+	{
 		Vector3 incoming = hit.normal - Vector3.up;
 		//south
 		if(incoming == new Vector3(0, -1, -1))
@@ -722,80 +643,8 @@ public class uBuildManager : MonoBehaviour {
 		return face.none;
 	}	
 	
-	//void checkDoorText(){
-	//	//display door label? (only when not in build mode)
-	//	bool doorTextTrue = false;
-	//	//check all doors
-	//	foreach(Door door in GameObject.FindObjectsOfType(typeof(Door)) as Door[]){
-	//		//if door is open/closeable set door label true
-	//		if(door.possible){
-	//			doorTextTrue = true;
-	//		}
-	//	}
-		
-	//	if(!buildMode && doorTextTrue && GameObject.FindObjectOfType<SaveAndLoad>().doneLoading){
-	//		//set label active
-	//		doorLabel.SetActive(true);
-			
-	//		//show proper text
-	//		if(mobileButtons == null)
-	//			doorLabel.GetComponentInChildren<Text>().text = "Press " + doorKey + " to open/close door";
-	//	}
-	//	else{
-	//		//if buildmode or doors are out of reach, don't show door label
-	//		doorLabel.SetActive(false);
-	//	}
-	//}
-	
-	public void checkDoors(){
-		foreach(Door door in GameObject.FindObjectsOfType<Door>()){
-			door.TryOpening();
-		}
-	}
-	
-	//switch between normal build mode & furniture mode
-	void switchFurnitureMode(bool FurnitureMode){
-		if(FurnitureMode){
-			//in furniture mode, only enable furniture buttons
-			for(int i = 0; i < pieces.Count; i++){
-				if(pieces[i].furniture){
-					pieces[i].button.gameObject.SetActive(true);
-				}
-				else{
-					pieces[i].button.gameObject.SetActive(false);
-				}
-			}
-			
-			//select first button after switching
-			selectFirstPiece();
-			//show the furniture label
-			furnitureLabel.SetActive(true);
-			
-			if(mobileButtons != null && GameObject.Find("furniture button label"))
-				GameObject.Find("furniture button label").GetComponent<Text>().text = "Back";
-		}
-		else{
-			//don't enable furniture buttons
-			for(int i = 0; i < pieces.Count; i++){
-				if(!pieces[i].furniture){
-					GameObject.Find("pieces").transform.Find(i.ToString()).gameObject.SetActive(true);
-				}
-				else{
-					GameObject.Find("pieces").transform.Find(i.ToString()).gameObject.SetActive(false);
-				}
-			}
-			
-			//select first button after switching
-			selectFirstPiece();
-			//do not show furniture label
-			//furnitureLabel.SetActive(false);
-			
-			//if(mobileButtons != null && GameObject.Find("furniture button label"))
-			//	GameObject.Find("furniture button label").GetComponent<Text>().text = "Furniture";
-		}
-	}
-	
-	void selectFirstPiece(){
+	void selectFirstPiece()
+	{
 		//first button that is currently active
 		int firstActiveButton = 0;
 		for(int i = 0; i < pieces.Count; i++){
@@ -817,7 +666,8 @@ public class uBuildManager : MonoBehaviour {
 	}
 	
 	//select a new piece
-	public void selectPiece(int piece){
+	public void selectPiece(int piece)
+	{
 		//disable all button outlines...
 		for(int i = 0; i < pieces.Count; i++){
 			pieces[i].button.GetComponent<Outline>().enabled = false;	
@@ -830,18 +680,6 @@ public class uBuildManager : MonoBehaviour {
 		
 		if(mobileButtons != null && !isPlacing)
 			createPiece();
-
-
-		//{
-		//	if ((!pieces[selectedPiece].requiresResources 
-		//	|| (pieces[selectedPiece].requiresResources && PlayerPrefs.GetFloat(index + " - " + pieces[selectedPiece].resource) >= pieces[selectedPiece].resourceAmount))){	
-		//		createPiece();
-		//	}
-		//	else if(pieces[selectedPiece].requiresResources 
-		//	&& PlayerPrefs.GetFloat(index + " - " + pieces[selectedPiece].resource) < pieces[selectedPiece].resourceAmount){
-		//		StartCoroutine(resourcesWarning(selectedPiece));
-		//	}
-		//}	
 	}
 	
 	void setRendererSettings(GameObject piece, Shader shader, Color color)
@@ -861,11 +699,4 @@ public class uBuildManager : MonoBehaviour {
 			}
 		}
 	}
-	
-	//IEnumerator resourcesWarning(int i){
-	//	resourcesWarningLabel.GetComponent<Text>().text = "Requires " + pieces[i].resourceAmount + " " + pieces[i].resource + "!";
-	//	resourcesWarningLabel.SetActive(true);
-	//	yield return new WaitForSeconds(1);
-	//	resourcesWarningLabel.SetActive(false);
-	//}
 }

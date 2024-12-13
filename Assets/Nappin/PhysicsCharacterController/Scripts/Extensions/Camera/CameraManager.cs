@@ -114,6 +114,8 @@ namespace PhysicsCharacterController
                 firstPersonCameraController.SetInitialValue(thirdPersonCamera.m_XAxis.Value, firstPersonHeightOnTransition);
 
                 StartCoroutine(UpdateMask(firstPersonMaskChangeDelay, firstPersonMask));
+
+                builder.switchBuildMode();
             }
         }
 
