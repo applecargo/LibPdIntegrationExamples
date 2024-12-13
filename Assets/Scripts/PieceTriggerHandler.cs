@@ -7,6 +7,7 @@ public class PieceTriggerHandler : MonoBehaviour
 {
     // Start is called before the first frame update
     public LibPdInstance pdPatch;
+    private string receiver = "platform";
 
     void Start()
     {
@@ -29,38 +30,74 @@ public class PieceTriggerHandler : MonoBehaviour
         if (other.CompareTag("Stair"))
         {
             Debug.Log("Stair!!");
-            pdPatch.SendSymbol("platform", "Stair");
+            object[] args = {"Stair", 1};
+            pdPatch.SendList(receiver, args);
         }
         if (other.CompareTag("Fluid"))
         {
             Debug.Log("Fluid!!");
-            pdPatch.SendSymbol("platform", "Fluid");
+            object[] args = {"Fluid", 1};
+            pdPatch.SendList(receiver, args);
         }
         if (other.CompareTag("Rubble"))
         {
             Debug.Log("Rubble!!");
-            pdPatch.SendSymbol("platform", "Rubble");
+            object[] args = {"Rubble", 1};
+            pdPatch.SendList(receiver, args);
         }
         if (other.CompareTag("Slope"))
         {
             Debug.Log("Slope!!");
-            pdPatch.SendSymbol("platform", "Slope");
+            object[] args = {"Slope", 1};
+            pdPatch.SendList(receiver, args);
         }
         if (other.CompareTag("SpeedArea"))
         {
             Debug.Log("SpeedArea!!");
-            pdPatch.SendSymbol("platform", "SpeedArea");
+            object[] args = {"SpeedArea", 1};
+            pdPatch.SendList(receiver, args);
         }
         if (other.CompareTag("Terrain"))
         {
             Debug.Log("Terrain!!");
-            pdPatch.SendSymbol("platform", "Terrain");
+            object[] args = {"Terrain", 1};
+            pdPatch.SendList(receiver, args);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-
+        if (other.CompareTag("Stair"))
+        {
+            Debug.Log("Excit!!");
+            object[] args = {"Stair", 0};
+            pdPatch.SendList(receiver, args);
+        }
+        if (other.CompareTag("Fluid"))
+        {
+            object[] args = {"Fluid", 0};
+            pdPatch.SendList(receiver, args);
+        }
+        if (other.CompareTag("Rubble"))
+        {
+            object[] args = {"Rubble", 0};
+            pdPatch.SendList(receiver, args);
+        }
+        if (other.CompareTag("Slope"))
+        {
+            object[] args = {"Slope", 0};
+            pdPatch.SendList(receiver, args);
+        }
+        if (other.CompareTag("SpeedArea"))
+        {
+            object[] args = {"SpeedArea", 0};
+            pdPatch.SendList(receiver, args);
+        }
+        if (other.CompareTag("Terrain"))
+        {
+            object[] args = {"Terrain", 0};
+            pdPatch.SendList(receiver, args);
+        }
     }
     
 }

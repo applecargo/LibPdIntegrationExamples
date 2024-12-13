@@ -358,21 +358,21 @@ public class uBuildManager : MonoBehaviour {
 		}
 		
 		// if(!isPlacing)
-		{
-		//if we're not placing a piece, check each piece
-		foreach(GameObject piece in GameObject.FindGameObjectsWithTag("Piece"))
-		{
-			if(piece == pieceSelected)
-			{
-				//if this is the selected piece, give it the selected color and a transparent shader
-			//	setRendererSettings(piece, Shader.Find("Unlit/UnlitAlphaWithFade"), selected);
-			}
-			else{
-				//if this is not the selected piece, give it a white color and a diffuse shader			
-			//	setRendererSettings(piece, Shader.Find("Diffuse"), Color.white);
-			}
-		}
-		}
+		// {
+		// //if we're not placing a piece, check each piece
+		// foreach(GameObject piece in GameObject.FindGameObjectsWithTag("Piece"))
+		// {
+		// 	if(piece == pieceSelected)
+		// 	{
+		// 		//if this is the selected piece, give it the selected color and a transparent shader
+		// 	//	setRendererSettings(piece, Shader.Find("Unlit/UnlitAlphaWithFade"), selected);
+		// 	}
+		// 	else{
+		// 		//if this is not the selected piece, give it a white color and a diffuse shader			
+		// 	//	setRendererSettings(piece, Shader.Find("Diffuse"), Color.white);
+		// 	}
+		// }
+		// }
 		
 		if(mobileButtons != null){
 			if(pieceSelected != null){
@@ -544,7 +544,7 @@ public class uBuildManager : MonoBehaviour {
 		//wait a very small time
 		yield return new WaitForSeconds(0.05f);
 		//set piece tag to piece (also important to save it)
-		currentObject.tag = "Piece";
+		// currentObject.tag = "Piece";
 		currentObject = null;
 	}
 	
