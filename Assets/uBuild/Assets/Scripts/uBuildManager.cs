@@ -357,7 +357,7 @@ public class uBuildManager : MonoBehaviour {
 		//	setRendererSettings(currentObject, Shader.Find("Unlit/UnlitAlphaWithFade"), Color.black);
 		}
 		
-		if(!isPlacing)
+		// if(!isPlacing)
 		{
 		//if we're not placing a piece, check each piece
 		foreach(GameObject piece in GameObject.FindGameObjectsWithTag("Piece"))

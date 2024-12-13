@@ -98,6 +98,7 @@
     <Compile Include="Assets/uBuild/Assets/Scripts/ResourcesExample.cs" />
     <Compile Include="Assets/Scripts/Unity2LibPdSceneScripts/Button2Bang.cs" />
     <Compile Include="Assets/Scripts/PlayerPdController.cs" />
+    <Compile Include="Assets/Scripts/PieceTriggerHandler.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Utils/Shooter.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/Ladder.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Input/MovementActions.cs" />
@@ -124,7 +125,6 @@
     <Compile Include="Assets/uBuild/Assets/Scripts/Layers.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/SpeedArea.cs" />
     <Compile Include="Assets/Scripts/PlayerJumpCrouch.cs" />
-    <Compile Include="Assets/Scripts/PieceTriggerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

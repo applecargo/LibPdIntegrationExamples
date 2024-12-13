@@ -1,0 +1,159 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj": {}
+  },
+  "projects": {
+    "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj",
+        "projectName": "Cinemachine",
+        "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj",
+        "packagesPath": "/Users/hoyouncho/.nuget/packages/",
+        "outputPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Temp/obj//Cinemachine/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/hoyouncho/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj": {
+                "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj"
+              },
+              "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj": {
+                "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj",
+        "projectName": "Unity.InputSystem",
+        "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj",
+        "packagesPath": "/Users/hoyouncho/.nuget/packages/",
+        "outputPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Temp/obj//Unity.InputSystem/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/hoyouncho/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj",
+        "projectName": "Unity.Timeline",
+        "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj",
+        "packagesPath": "/Users/hoyouncho/.nuget/packages/",
+        "outputPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Temp/obj//Unity.Timeline/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/hoyouncho/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

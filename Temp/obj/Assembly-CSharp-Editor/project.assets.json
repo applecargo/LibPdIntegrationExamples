@@ -1,0 +1,384 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Assembly-CSharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Cinemachine": "1.0.0",
+          "Unity.InputSystem": "1.0.0",
+          "Unity.PlasticSCM.Editor": "1.0.0",
+          "Unity.Rider.Editor": "1.0.0",
+          "Unity.TextMeshPro": "1.0.0",
+          "Unity.TextMeshPro.Editor": "1.0.0",
+          "Unity.Timeline": "1.0.0",
+          "Unity.Timeline.Editor": "1.0.0",
+          "Unity.VSCode.Editor": "1.0.0",
+          "Unity.VisualStudio.Editor": "1.0.0",
+          "com.unity.cinemachine.editor": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Assembly-CSharp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Assembly-CSharp.dll": {}
+        }
+      },
+      "Cinemachine/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.InputSystem": "1.0.0",
+          "Unity.Timeline": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cinemachine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cinemachine.dll": {}
+        }
+      },
+      "com.unity.cinemachine.editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Cinemachine": "1.0.0",
+          "Unity.Timeline": "1.0.0",
+          "Unity.Timeline.Editor": "1.0.0",
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/com.unity.cinemachine.editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/com.unity.cinemachine.editor.dll": {}
+        }
+      },
+      "Unity.InputSystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Unity.InputSystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.InputSystem.dll": {}
+        }
+      },
+      "Unity.PlasticSCM.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.PlasticSCM.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.PlasticSCM.Editor.dll": {}
+        }
+      },
+      "Unity.Rider.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Rider.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Rider.Editor.dll": {}
+        }
+      },
+      "Unity.TextMeshPro/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Unity.TextMeshPro.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.TextMeshPro.dll": {}
+        }
+      },
+      "Unity.TextMeshPro.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.TextMeshPro": "1.0.0",
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.TextMeshPro.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.TextMeshPro.Editor.dll": {}
+        }
+      },
+      "Unity.Timeline/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Unity.Timeline.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Timeline.dll": {}
+        }
+      },
+      "Unity.Timeline.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Unity.Timeline": "1.0.0",
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.Timeline.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.Timeline.Editor.dll": {}
+        }
+      },
+      "Unity.VisualStudio.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.VisualStudio.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.VisualStudio.Editor.dll": {}
+        }
+      },
+      "Unity.VSCode.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEditor.TestRunner": "1.0.0",
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Unity.VSCode.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Unity.VSCode.Editor.dll": {}
+        }
+      },
+      "UnityEditor.TestRunner/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "UnityEngine.TestRunner": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UnityEditor.TestRunner.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UnityEditor.TestRunner.dll": {}
+        }
+      },
+      "UnityEngine.TestRunner/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/UnityEngine.TestRunner.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UnityEngine.TestRunner.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Assembly-CSharp/1.0.0": {
+      "type": "project",
+      "path": "Assembly-CSharp.csproj",
+      "msbuildProject": "Assembly-CSharp.csproj"
+    },
+    "Cinemachine/1.0.0": {
+      "type": "project",
+      "path": "Cinemachine.csproj",
+      "msbuildProject": "Cinemachine.csproj"
+    },
+    "com.unity.cinemachine.editor/1.0.0": {
+      "type": "project",
+      "path": "com.unity.cinemachine.editor.csproj",
+      "msbuildProject": "com.unity.cinemachine.editor.csproj"
+    },
+    "Unity.InputSystem/1.0.0": {
+      "type": "project",
+      "path": "Unity.InputSystem.csproj",
+      "msbuildProject": "Unity.InputSystem.csproj"
+    },
+    "Unity.PlasticSCM.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.PlasticSCM.Editor.csproj",
+      "msbuildProject": "Unity.PlasticSCM.Editor.csproj"
+    },
+    "Unity.Rider.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.Rider.Editor.csproj",
+      "msbuildProject": "Unity.Rider.Editor.csproj"
+    },
+    "Unity.TextMeshPro/1.0.0": {
+      "type": "project",
+      "path": "Unity.TextMeshPro.csproj",
+      "msbuildProject": "Unity.TextMeshPro.csproj"
+    },
+    "Unity.TextMeshPro.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.TextMeshPro.Editor.csproj",
+      "msbuildProject": "Unity.TextMeshPro.Editor.csproj"
+    },
+    "Unity.Timeline/1.0.0": {
+      "type": "project",
+      "path": "Unity.Timeline.csproj",
+      "msbuildProject": "Unity.Timeline.csproj"
+    },
+    "Unity.Timeline.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.Timeline.Editor.csproj",
+      "msbuildProject": "Unity.Timeline.Editor.csproj"
+    },
+    "Unity.VisualStudio.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.VisualStudio.Editor.csproj",
+      "msbuildProject": "Unity.VisualStudio.Editor.csproj"
+    },
+    "Unity.VSCode.Editor/1.0.0": {
+      "type": "project",
+      "path": "Unity.VSCode.Editor.csproj",
+      "msbuildProject": "Unity.VSCode.Editor.csproj"
+    },
+    "UnityEditor.TestRunner/1.0.0": {
+      "type": "project",
+      "path": "UnityEditor.TestRunner.csproj",
+      "msbuildProject": "UnityEditor.TestRunner.csproj"
+    },
+    "UnityEngine.TestRunner/1.0.0": {
+      "type": "project",
+      "path": "UnityEngine.TestRunner.csproj",
+      "msbuildProject": "UnityEngine.TestRunner.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Assembly-CSharp >= 1.0.0",
+      "Cinemachine >= 1.0.0",
+      "Unity.InputSystem >= 1.0.0",
+      "Unity.PlasticSCM.Editor >= 1.0.0",
+      "Unity.Rider.Editor >= 1.0.0",
+      "Unity.TextMeshPro >= 1.0.0",
+      "Unity.TextMeshPro.Editor >= 1.0.0",
+      "Unity.Timeline >= 1.0.0",
+      "Unity.Timeline.Editor >= 1.0.0",
+      "Unity.VSCode.Editor >= 1.0.0",
+      "Unity.VisualStudio.Editor >= 1.0.0",
+      "UnityEditor.TestRunner >= 1.0.0",
+      "UnityEngine.TestRunner >= 1.0.0",
+      "com.unity.cinemachine.editor >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/hoyouncho/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Assembly-CSharp-Editor.csproj",
+      "projectName": "Assembly-CSharp-Editor",
+      "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Assembly-CSharp-Editor.csproj",
+      "packagesPath": "/Users/hoyouncho/.nuget/packages/",
+      "outputPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Temp/obj//Assembly-CSharp-Editor/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/hoyouncho/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Assembly-CSharp.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Assembly-CSharp.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Cinemachine.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/com.unity.cinemachine.editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/com.unity.cinemachine.editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.InputSystem.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.PlasticSCM.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.PlasticSCM.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Rider.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Rider.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.TextMeshPro.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.TextMeshPro.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.TextMeshPro.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.TextMeshPro.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.Timeline.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.VisualStudio.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.VisualStudio.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.VSCode.Editor.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/Unity.VSCode.Editor.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/UnityEditor.TestRunner.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/UnityEditor.TestRunner.csproj"
+            },
+            "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/UnityEngine.TestRunner.csproj": {
+              "projectPath": "/Users/hoyouncho/GitLocal/LibPdIntegrationExamples/UnityEngine.TestRunner.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

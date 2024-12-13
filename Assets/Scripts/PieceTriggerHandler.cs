@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,35 +6,61 @@ using UnityEngine;
 public class PieceTriggerHandler : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject playerObj;
-    private GameObject pdPatch;
-    private bool OnStairCheck = false;
+    public LibPdInstance pdPatch;
 
     void Start()
     {
-        playerObj = GameObject.Find("Player");
-        pdPatch = GameObject.Find("PlatformLibPdObject");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float currentPlayerY = playerObj.transform.position.y;
+        float posY = gameObject.transform.position.y;
+        pdPatch.SendFloat("posY", posY);
+        // Debug.Log(posY);
 
-        if(OnStairCheck)
-        {
-            pdPatch.GetComponent<LibPdInstance>().SendFloat("Stair", currentPlayerY);
-        }
+        // pdPatch.SendFloat("Stair", currentPlayerY);
+        // float currentPlayerY = playerObj.transform.position.y;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the triggering object is the player or other valid object
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Stair"))
         {
-            // Print a unique message for each piece
-            Debug.Log("trigger!!");
-            OnStairCheck = true;
+            Debug.Log("Stair!!");
+            pdPatch.SendSymbol("platform", "Stair");
+        }
+        if (other.CompareTag("Fluid"))
+        {
+            Debug.Log("Fluid!!");
+            pdPatch.SendSymbol("platform", "Fluid");
+        }
+        if (other.CompareTag("Rubble"))
+        {
+            Debug.Log("Rubble!!");
+            pdPatch.SendSymbol("platform", "Rubble");
+        }
+        if (other.CompareTag("Slope"))
+        {
+            Debug.Log("Slope!!");
+            pdPatch.SendSymbol("platform", "Slope");
+        }
+        if (other.CompareTag("SpeedArea"))
+        {
+            Debug.Log("SpeedArea!!");
+            pdPatch.SendSymbol("platform", "SpeedArea");
+        }
+        if (other.CompareTag("Terrain"))
+        {
+            Debug.Log("Terrain!!");
+            pdPatch.SendSymbol("platform", "Terrain");
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+    }
+    
 }
