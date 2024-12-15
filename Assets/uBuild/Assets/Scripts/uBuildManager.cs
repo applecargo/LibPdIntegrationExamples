@@ -31,9 +31,9 @@ public enum face
 public class uBuildManager : MonoBehaviour {
 	
 	//variables visible in the inspector (under settings)
-	public Color green;
-	public Color red;
-	public Color selected;
+	//public Color green;
+	//public Color red;
+	//public Color selected;
 	public Color buttonHighlight;
 	public GameObject button;
 	public GameObject piecesList;
@@ -76,7 +76,9 @@ public class uBuildManager : MonoBehaviour {
 	public GameObject pieceSelected;
 
 	public Camera cam;
-	
+
+	private FCP_ExampleScript previousFCPScript;
+
 	void Awake()
 	{
 		//index = GameObject.FindObjectOfType<SaveAndLoad>().index;
@@ -110,246 +112,240 @@ public class uBuildManager : MonoBehaviour {
 		//check for buildmode
 		if(buildMode)
 		{
-		//change help text
-		//updateHelpText();
+			//change help text
+			//updateHelpText();
 		
-		//third person camera mode is false and build camera mode is true
-		//changeCamera(false);
+			//if place key is pressed, instantiate new piece (selected one)
+			if(Input.GetKeyDown(placeKey) && !isPlacing && !EventSystem.current.IsPointerOverGameObject())
+			{	
+				createPiece();
+			}
 		
-		//if place key is pressed, instantiate new piece (selected one)
-		if(Input.GetKeyDown(placeKey) && !isPlacing && !EventSystem.current.IsPointerOverGameObject())
-		{	
-			createPiece();
-		}
-		
-		RaycastHit hit;
-		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-		//ray from mouse position
-        if(Physics.Raycast(ray, out hit))
-			
-		//check if mouse is over object
-			if(hit.collider != null){
-				//check if we're placing a piece
-				if(isPlacing){
-				Vector3 pos = Vector3.zero;	
-				Vector3 objectScale = currentObject.GetComponent<PieceTrigger>().scale;
+			RaycastHit hit;
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			//ray from mouse position
+			if(Physics.Raycast(ray, out hit))
+            
+			//check if mouse is over object
+				if(hit.collider != null)
+				{
+					//check if we're placing a piece
+					if(isPlacing){
+					Vector3 pos = Vector3.zero;	
+					Vector3 objectScale = currentObject.GetComponent<PieceTrigger>().scale;
 				
-				//if piece is floor...
-				if(pieces[selectedPiece].floor){
-					//get face
-					direction = GetHitFace(hit);
+					//if piece is floor...
+					if(pieces[selectedPiece].floor){
+						//get face
+						direction = GetHitFace(hit);
 					
-					//if there's a piece above this floor or underneath it, just move it normally
-					if(direction == face.up || direction == face.down)
-					{
-						pos = new Vector3(hit.point.x, hit.point.y, hit.point.z); // hit.point.y + objectScale.y/2
-					}
-					else{
-						//if object is not rotated, check where the other pieces are to move this floor accordingly
-						if(currentObject.transform.rotation.y == 0 || currentObject.transform.rotation.y == -180 || currentObject.transform.rotation.y == 180){
-							if(direction == face.north)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, objectScale.z/2);
-						
-							if(direction == face.south)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, -objectScale.z/2);
-							
-							if(direction == face.east)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(objectScale.x/2, 0, 0);
-						
-							if(direction == face.west)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(-objectScale.x/2, 0, 0);
+						//if there's a piece above this floor or underneath it, just move it normally
+						if(direction == face.up || direction == face.down)
+						{
+							pos = new Vector3(hit.point.x, hit.point.y, hit.point.z); // hit.point.y + objectScale.y/2
 						}
 						else{
-							//if object is rotated, still check where the other pieces are to move this floor accordingly
-							if(direction == face.north)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, objectScale.x/2);
+							//if object is not rotated, check where the other pieces are to move this floor accordingly
+							if(currentObject.transform.rotation.y == 0 || currentObject.transform.rotation.y == -180 || currentObject.transform.rotation.y == 180)
+							{
+								if(direction == face.north)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, objectScale.z/2);
 						
-							if(direction == face.south)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, -objectScale.x/2);
+								if(direction == face.south)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, -objectScale.z/2);
 							
-							if(direction == face.east)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(objectScale.z/2, 0, 0);
+								if(direction == face.east)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(objectScale.x/2, 0, 0);
 						
-							if(direction == face.west)
-								pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(-objectScale.z/2, 0, 0);
+								if(direction == face.west)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(-objectScale.x/2, 0, 0);
+							}
+							else
+							{
+								//if object is rotated, still check where the other pieces are to move this floor accordingly
+								if(direction == face.north)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, objectScale.x/2);
+						
+								if(direction == face.south)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(0, 0, -objectScale.x/2);
+							
+								if(direction == face.east)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(objectScale.z/2, 0, 0);
+						
+								if(direction == face.west)
+									pos = new Vector3(hit.point.x, hit.point.y, hit.point.z) + new Vector3(-objectScale.z/2, 0, 0);
+							}
 						}
 					}
-				}
-				else{
-					//if the current piece is not a floor, move it normally
-					pos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-				}
-				
-				//move piece with snapping
-				pos -= Vector3.one;
-				pos /= 0.5f;
-				
-				bool isWallpaper = pieces[currentObject.GetComponent<PieceTrigger>().type].wallpaper;
-				
-				if(!isWallpaper){
-					if(!pieces[currentObject.GetComponent<PieceTrigger>().type].disableYSnapping && !pieces[currentObject.GetComponent<PieceTrigger>().type].furniture){
-						//normally, use snapping for all directions
-						pos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), Mathf.Round(pos.z));
-					}
-					else if(pieces[currentObject.GetComponent<PieceTrigger>().type].disableYSnapping && !pieces[currentObject.GetComponent<PieceTrigger>().type].furniture){
-						//disable y snapping
-						pos = new Vector3(Mathf.Round(pos.x), pos.y, Mathf.Round(pos.z));
-					}
-				}
-				else{
-					if(currentObject.transform.rotation.y % 180 > 0.8f || currentObject.transform.rotation.y % 180 < -0.8f || currentObject.transform.rotation.y == 0){
-						pos = new Vector3(pos.x, Mathf.Round(pos.y), Mathf.Round(pos.z));
-					}
-					else{
-						pos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), pos.z);
-					}
-				}
-				
-				pos *= 0.5f;
-				pos += Vector3.one;
-				
-				//apply position to current piece
-				currentObject.transform.position = pos;
-				
-				GameObject closestWall = null;
-				
-				if(isWallpaper){
-					float closest = 0.1f;
-					
-					foreach(GameObject piece in GameObject.FindGameObjectsWithTag("Piece")){
-						if(piece != currentObject && piece.name.Substring(0, 4) == "Wall" && Vector3.Distance(piece.transform.position, currentObject.transform.position) < closest){
-							closest = Vector3.Distance(piece.transform.position, currentObject.transform.position);
-							closestWall = piece;
-						}
-					}
-				}
-				
-				float yDistance = 0;
-				
-				if(closestWall != null)
-					yDistance = Mathf.Abs(closestWall.transform.position.y - currentObject.transform.position.y);
-				
-				//if currentobject is not triggered by another object, make it green and placeable
-				if(!currentObject.GetComponent<PieceTrigger>().triggered && (!isWallpaper || (isWallpaper && closestWall != null && yDistance < 0.1f)))
-				{
-				//	setRendererSettings(currentObject, null, green);
-					
-					//place piece on mouse click
-					if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && mobileButtons == null)
+					else
 					{
-						StartCoroutine(place());
+						//if the current piece is not a floor, move it normally
+						pos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 					}
-					else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && mobileButtons != null)
+				
+					//move piece with snapping
+					pos -= Vector3.one;
+					pos /= 0.5f;
+				
+					bool isWallpaper = pieces[currentObject.GetComponent<PieceTrigger>().type].wallpaper;
+				
+					if(!isWallpaper)
 					{
-						if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && Input.mousePosition.x > lastX + 70)
+						if(!pieces[currentObject.GetComponent<PieceTrigger>().type].disableYSnapping && !pieces[currentObject.GetComponent<PieceTrigger>().type].furniture)
 						{
-								StartCoroutine(place());       
+							//normally, use snapping for all directions
+							pos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), Mathf.Round(pos.z));
+						}
+						else if(pieces[currentObject.GetComponent<PieceTrigger>().type].disableYSnapping && !pieces[currentObject.GetComponent<PieceTrigger>().type].furniture)
+						{
+							//disable y snapping
+							pos = new Vector3(Mathf.Round(pos.x), pos.y, Mathf.Round(pos.z));
+						}
+					}
+					else
+					{
+						if(currentObject.transform.rotation.y % 180 > 0.8f || currentObject.transform.rotation.y % 180 < -0.8f || currentObject.transform.rotation.y == 0)
+						{
+							pos = new Vector3(pos.x, Mathf.Round(pos.y), Mathf.Round(pos.z));
 						}
 						else
 						{
-							cancel();
+							pos = new Vector3(Mathf.Round(pos.x), Mathf.Round(pos.y), pos.z);
 						}
 					}
-				}
-				else
-				{
-					//make it red when it's not placeable
-					//setRendererSettings(currentObject, null, red);
-					
-					if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && mobileButtons != null)
-						cancel();	
-				}
 				
-				//cancel placing when key is pressed
-				if(Input.GetKeyDown("delete"))
-					cancel();
+					pos *= 0.5f;
+					pos += Vector3.one;
 				
-				//update piece rotation
-				updateRotation();
-				}
-				else
-				{
-					if(mobileButtons == null){
-						if(Input.GetMouseButtonDown(0) && hit.collider.gameObject.CompareTag("Piece") && !EventSystem.current.IsPointerOverGameObject())
-						{
-							pieceSelected = hit.collider.gameObject;
-							//set piece color to selected color
-						//	setRendererSettings(hit.collider.gameObject, null, selected);
-						}			
-					}
-					else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+					//apply position to current piece
+					currentObject.transform.position = pos;
+				
+					GameObject closestWall = null;
+				
+					float yDistance = 0;
+				
+					if(closestWall != null)
+						yDistance = Mathf.Abs(closestWall.transform.position.y - currentObject.transform.position.y);
+				
+					//if currentobject is not triggered by another object, make it green and placeable
+					if(!currentObject.GetComponent<PieceTrigger>().triggered && (!isWallpaper || (isWallpaper && closestWall != null && yDistance < 0.1f)))
 					{
-						//if not placing a piece, use mouse button to select pieces
-						if(hit.collider.gameObject.CompareTag("Piece"))
+					//	setRendererSettings(currentObject, null, green);
+					
+						//place piece on mouse click
+						if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && mobileButtons == null)
 						{
-							pieceSelected = hit.collider.gameObject;
-							//set piece color to selected color
-						//	setRendererSettings(hit.collider.gameObject, null, selected);
+							StartCoroutine(place());
 						}
-						else
+						else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && mobileButtons != null)
 						{
-							pieceSelected = null;      
+							if(!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) && Input.mousePosition.x > lastX + 70)
+							{
+									StartCoroutine(place());       
+							}
+							else
+							{
+								cancel();
+							}
 						}
 					}
-				
-				//if there is a selected piece
-				if(pieceSelected != null)
-				{
-					int type = pieceSelected.GetComponent<PieceTrigger>().type;
+					else
+					{
+						//make it red when it's not placeable
+						//setRendererSettings(currentObject, null, red);
 					
-					//check if we want to duplicate the piece
-					if(Input.GetKeyDown(KeyCode.LeftControl)){
-						
-						//PlayerPrefs.SetFloat(index + " - " + pieces[type].resource, PlayerPrefs.GetFloat(index + " - " + pieces[type].resource) - pieces[type].resourceAmount);
-						
-						//instantiate selected piece to duplicate it
-						currentObject = Instantiate(pieceSelected, pieceSelected.transform.position, pieceSelected.transform.rotation) as GameObject;
-						//disable collider temporarily
-						currentObject.GetComponentInChildren<Collider>().enabled = false;
-						//make piece untagged
-						currentObject.tag = "Untagged";
-						if(currentObject.GetComponent<PieceTrigger>().layer != 0){
-						//add the duplicate to it's layer
-						GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Add(currentObject);
+						if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended && mobileButtons != null)
+							cancel();	
+					}
+				
+					//cancel placing when key is pressed
+					if(Input.GetKeyDown("delete"))
+						cancel();
+				
+					//update piece rotation
+					updateRotation();
+					}
+					else
+					{
+						if(mobileButtons == null)
+						{
+							//if(Input.GetMouseButtonDown(0) && hit.collider.gameObject.CompareTag("Piece") && !EventSystem.current.IsPointerOverGameObject())
+							if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.name == "platform" && !EventSystem.current.IsPointerOverGameObject())
+							{
+								pieceSelected = hit.collider.gameObject;
+								//set piece color to selected color
+							//	setRendererSettings(hit.collider.gameObject, null, selected);
+							}			
 						}
+						else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+						{
+							//if not placing a piece, use mouse button to select pieces
+							//if(hit.collider.gameObject.CompareTag("Piece"))
+							if (hit.collider.gameObject.name == "platform")
+							{
+								pieceSelected = hit.collider.gameObject;
+								//set piece color to selected color
+								//	setRendererSettings(hit.collider.gameObject, null, selected);
+							}
+							else
+							{
+								pieceSelected = null;      
+							}
+						}
+				
+						//if there is a selected piece
+						if(pieceSelected != null)
+						{
+							int type = pieceSelected.GetComponent<PieceTrigger>().type;
+					
+							//check if we want to duplicate the piece
+							if(Input.GetKeyDown(KeyCode.LeftControl))
+							{
+						
+								//PlayerPrefs.SetFloat(index + " - " + pieces[type].resource, PlayerPrefs.GetFloat(index + " - " + pieces[type].resource) - pieces[type].resourceAmount);
+						
+								//instantiate selected piece to duplicate it
+								currentObject = Instantiate(pieceSelected, pieceSelected.transform.position, pieceSelected.transform.rotation) as GameObject;
+								//disable collider temporarily
+								currentObject.GetComponentInChildren<Collider>().enabled = false;
+								//make piece untagged
+								currentObject.tag = "Untagged";
+								//if(currentObject.GetComponent<PieceTrigger>().layer != 0)
+								//{
+								//	//add the duplicate to it's layer
+								//	GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Add(currentObject);
+							 //   }
 
-						//start placing duplicate
-						isPlacing = true;
-						pieceSelected = null;
-					}
+								//start placing duplicate
+								isPlacing = true;
+								pieceSelected = null;
+						}
 		
-					//check if we want to move the piece
-					if(Input.GetKeyDown("m")){
-						//set piece to selected piece to move it
-						currentObject = pieceSelected;
-						//disable collider temporarily
-						currentObject.GetComponentInChildren<Collider>().enabled = false;
+							//check if we want to move the piece
+							if(Input.GetKeyDown("m"))
+							{
+								//set piece to selected piece to move it
+								currentObject = pieceSelected;
+								//disable collider temporarily
+								currentObject.GetComponentInChildren<Collider>().enabled = false;
 
-						//make piece untagged
-						currentObject.tag = "Untagged";
-						//start moving piece
-						isPlacing = true;
-						pieceSelected = null;
-					}
-					//check if we want to remove piece
-					if(Input.GetKeyDown(KeyCode.R)) //if(Input.GetKeyDown("delete"))
+								//make piece untagged
+								currentObject.tag = "Untagged";
+								//start moving piece
+								isPlacing = true;
+								pieceSelected = null;
+							}
+							//check if we want to remove piece
+							if(Input.GetKeyDown(KeyCode.R)) //if(Input.GetKeyDown("delete"))
 								Delete();	
 					
-					//deselect piece with right mouse button
-					if(Input.GetMouseButtonDown(1))
-						pieceSelected = null;	
-				}
-				}
+							//deselect piece with right mouse button
+							if(Input.GetMouseButtonDown(1))
+								pieceSelected = null;
+						}
+					}
 			}
-			//switch furniture mode on key down
-			//if(Input.GetKeyDown(switchFurnitureModeKey) && !EventSystem.current.IsPointerOverGameObject() && !Layers.removeLayerWarning.activeSelf){
-			//	switchButtons();
-			//}
 		}
-		//else{
-		//	//if we're not in build mode, set camera to third person
-		//	changeCamera(true);
-		//}
 		
 		if(currentObject != null)
 		{
@@ -357,41 +353,29 @@ public class uBuildManager : MonoBehaviour {
 		//	setRendererSettings(currentObject, Shader.Find("Unlit/UnlitAlphaWithFade"), Color.black);
 		}
 		
-		// if(!isPlacing)
-		// {
-		// //if we're not placing a piece, check each piece
-		// foreach(GameObject piece in GameObject.FindGameObjectsWithTag("Piece"))
-		// {
-		// 	if(piece == pieceSelected)
-		// 	{
-		// 		//if this is the selected piece, give it the selected color and a transparent shader
-		// 	//	setRendererSettings(piece, Shader.Find("Unlit/UnlitAlphaWithFade"), selected);
-		// 	}
-		// 	else{
-		// 		//if this is not the selected piece, give it a white color and a diffuse shader			
-		// 	//	setRendererSettings(piece, Shader.Find("Diffuse"), Color.white);
-		// 	}
-		// }
-		// }
-		
-		if(mobileButtons != null){
-			if(pieceSelected != null){
+		if(mobileButtons != null)
+		{
+			if(pieceSelected != null)
+			{
 				mobileSelectedButtons.SetActive(true);
 			}
-			else{
+			else
+			{
 				mobileSelectedButtons.SetActive(false);
 			}
 		}
 	}
 	
-	public void Delete(){
+	public void Delete()
+	{
 		int type = pieceSelected.GetComponent<PieceTrigger>().type;
 		//PlayerPrefs.SetFloat(index + " - " + pieces[type].resource, PlayerPrefs.GetFloat(index + " - " + pieces[type].resource) + pieces[type].resourceAmount);
 						
 		//set piece to selected piece
 		currentObject = pieceSelected;
 		//remove piece from it's layer
-		if(currentObject.GetComponent<PieceTrigger>().layer != 0){
+		if(currentObject.GetComponent<PieceTrigger>().layer != 0)
+		{
 			GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Remove(currentObject);
 		}
 		
@@ -409,12 +393,13 @@ public class uBuildManager : MonoBehaviour {
 		//disable collider (temporarily) and set type and layer
 		currentObject.GetComponentInChildren<Collider>().enabled = false;
 		currentObject.GetComponent<PieceTrigger>().type = selectedPiece;
-		currentObject.GetComponent<PieceTrigger>().layer = PlayerPrefs.GetInt(index + " - " + "defaultLayer");
+		//currentObject.GetComponent<PieceTrigger>().layer = PlayerPrefs.GetInt(index + " - " + "defaultLayer");
 			
-			//add piece to the correct layer
-			if(PlayerPrefs.GetInt(index + " - " + "defaultLayer") != 0){
-			GetComponent<Layers>().layers[PlayerPrefs.GetInt(index + " - " + "defaultLayer") - 1].layerPieces.Add(currentObject);
-			}
+		//add piece to the correct layer
+		//if(PlayerPrefs.GetInt(index + " - " + "defaultLayer") != 0)
+		//{
+		//	GetComponent<Layers>().layers[PlayerPrefs.GetInt(index + " - " + "defaultLayer") - 1].layerPieces.Add(currentObject);
+		//}
 			
 		//start placing
 		isPlacing = true;
@@ -425,7 +410,8 @@ public class uBuildManager : MonoBehaviour {
 	{
 		//if right mouse button gets pressed, rotate the piece 90 degrees
 		//please do not change the rotation angle, this will disturb floor placement
-		if((mobileButtons != null && Input.GetMouseButtonDown(0) && Input.touchCount > 1) || Input.GetMouseButtonDown(1)){
+		if((mobileButtons != null && Input.GetMouseButtonDown(0) && Input.touchCount > 1) || Input.GetMouseButtonDown(1))
+		{
 			currentObject.transform.Rotate(Vector3.up, 90, Space.World);
 		}
 	}
@@ -545,6 +531,9 @@ public class uBuildManager : MonoBehaviour {
 		yield return new WaitForSeconds(0.05f);
 		//set piece tag to piece (also important to save it)
 		// currentObject.tag = "Piece";
+
+		currentObject.name = "platform";
+
 		currentObject = null;
 	}
 	
@@ -647,8 +636,10 @@ public class uBuildManager : MonoBehaviour {
 	{
 		//first button that is currently active
 		int firstActiveButton = 0;
-		for(int i = 0; i < pieces.Count; i++){
-			if(pieces[i].button.gameObject.activeSelf){
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			if(pieces[i].button.gameObject.activeSelf)
+			{
 				//if this is the active button, set it to be the active one
 				firstActiveButton = i;
 				//break the loop since we've already got the active button
@@ -656,7 +647,8 @@ public class uBuildManager : MonoBehaviour {
 			}
 		}
 		//disable button outline...
-		for(int i = 0; i < pieces.Count; i++){
+		for(int i = 0; i < pieces.Count; i++)
+		{
 			pieces[i].button.GetComponent<Outline>().enabled = false;	
 		}
 		//... and enable it for the first button
@@ -669,7 +661,8 @@ public class uBuildManager : MonoBehaviour {
 	public void selectPiece(int piece)
 	{
 		//disable all button outlines...
-		for(int i = 0; i < pieces.Count; i++){
+		for(int i = 0; i < pieces.Count; i++)
+		{
 			pieces[i].button.GetComponent<Outline>().enabled = false;	
 		}
 		
@@ -684,8 +677,10 @@ public class uBuildManager : MonoBehaviour {
 	
 	void setRendererSettings(GameObject piece, Shader shader, Color color)
 	{
-		foreach(Renderer renderer in piece.GetComponentsInChildren<Renderer>()){
-			if(shader != null && color != Color.black){
+		foreach(Renderer renderer in piece.GetComponentsInChildren<Renderer>())
+		{
+			if(shader != null && color != Color.black)
+			{
 				renderer.material.color = color;
 				renderer.material.shader = shader;
 			}

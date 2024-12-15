@@ -111,7 +111,8 @@ public class Layers : MonoBehaviour {
 	}
 	
 	//update the layer ui
-	void updateLayerUI(){
+	void updateLayerUI()
+	{
 		//for all layers...
 		for(int i = 0; i < layers.Count; i++){
 			//check if the layer has ui, assign a name to the layer ui (not visible in game, just in the hierarchy) and show the layer index
@@ -147,7 +148,8 @@ public class Layers : MonoBehaviour {
 	}
 	
 	//add a new layer
-	public void addLayer(){
+	public void addLayer()
+	{
 		//instantiate layer ui and add it to the scroll list
 		GameObject newLayer = Instantiate(layerUI);
 		RectTransform rectTransform = newLayer.GetComponent<RectTransform>();

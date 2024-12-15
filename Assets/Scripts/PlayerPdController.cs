@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPdController : MonoBehaviour
 {
-    public FirstPersonController firstPC;
+ //   public FirstPersonController firstPC;
     public LibPdInstance pdPatch;
  
     // Start is called before the first frame update
@@ -18,15 +18,15 @@ public class PlayerPdController : MonoBehaviour
     void Update()
     {
 
-        if(firstPC.isCrouched == true)
-        {
-            Debug.Log("crouch!!");
-            pdPatch.SendBang("LowTone");
+        //if(firstPC.isCrouched == true)
+        //{
+        //    Debug.Log("crouch!!");
+        //    pdPatch.SendBang("LowTone");
 
             
-        }else{
-            pdPatch.SendBang("HighTone");
+        //}else{
+        //    pdPatch.SendBang("HighTone");
 
-        }
+        //}
     }
 }
