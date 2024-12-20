@@ -13,6 +13,9 @@ public class PlayerJumpCrouch : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private Transform playerTransform;
+    public LibPdInstance pdPatch;
+
+    public PhysicsCharacterController.CharacterManager characterManager;
 
     void Start()
     {
@@ -39,10 +42,24 @@ public class PlayerJumpCrouch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             playerTransform.localScale = new Vector3(1, crouchScale, 1);
+            object[] args = {"crouch", 1};
+            pdPatch.SendList("player", args);
         }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             playerTransform.localScale = new Vector3(1, normalScale, 1);
+            object[] args = {"crouch", 0};
+            pdPatch.SendList("player", args);
+        }
+
+        //run
+        if(characterManager.sprint)
+        {
+            object[] args = {"run", 1};
+            pdPatch.SendList("player", args);
+        }else{
+            object[] args = {"run", 0};
+            pdPatch.SendList("player", args);
         }
     }
 

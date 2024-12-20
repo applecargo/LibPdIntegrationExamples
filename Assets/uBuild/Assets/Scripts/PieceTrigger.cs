@@ -21,7 +21,8 @@ public class PieceTrigger : MonoBehaviour {
 	//when a collider stays in the trigger, the piece is triggered and not placeable
     void OnTriggerStay(Collider other)
 	{
-		if(other.gameObject.tag != "Ground" && !other.isTrigger && !other.gameObject.transform.IsChildOf(transform)){
+		if(other.gameObject.tag != "Ground" && !other.isTrigger && !other.gameObject.transform.IsChildOf(transform))
+		{
         triggered = true;
 		}
     }

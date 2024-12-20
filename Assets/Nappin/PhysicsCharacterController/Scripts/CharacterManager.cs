@@ -184,7 +184,7 @@ namespace PhysicsCharacterController
         private Vector2 axisInput;
         private bool jump;
         private bool jumpHold;
-        private bool sprint;
+        public bool sprint;
         private bool crouch;
 
         [HideInInspector]

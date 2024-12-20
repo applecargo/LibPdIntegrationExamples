@@ -79,6 +79,8 @@ public class uBuildManager : MonoBehaviour {
 
 	private FCP_ExampleScript previousFCPScript;
 
+	public int fluidCount, rubbleCount, slopeCount, speedAreaCount, stairCount, terrainCount, fogCount, grassCount, treeCount = 0;
+
 	void Awake()
 	{
 		//index = GameObject.FindObjectOfType<SaveAndLoad>().index;
@@ -535,6 +537,47 @@ public class uBuildManager : MonoBehaviour {
 		currentObject.name = "platform";
 
 		currentObject = null;
+		// Debug.Log("platform!!");
+		// Debug.Log(pieces[selectedPiece].prefab.name);
+
+		if(pieces[selectedPiece].prefab.name == "PlatformFluid")
+		{
+			fluidCount++;
+			// Debug.Log("PlatformFluid " + fluidCount);
+		}
+		if(pieces[selectedPiece].prefab.name == "PlatformRubble")
+		{
+			rubbleCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "PlatformSlope")
+		{
+			slopeCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "PlatformSpeedArea")
+		{
+			speedAreaCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "PlatformStairs")
+		{
+			stairCount++;
+			// Debug.Log("PlatformStairs " + stairCount);
+		}
+		if(pieces[selectedPiece].prefab.name == "PlatformTerrain")
+		{
+			terrainCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "ObjFog")
+		{
+			fogCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "ObjGrass")
+		{
+			grassCount++;
+		}
+		if(pieces[selectedPiece].prefab.name == "ObjTree")
+		{
+			treeCount++;
+		}
 	}
 	
 	void cancel()
