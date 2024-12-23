@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class FCP_ExampleScript : MonoBehaviour
 {
-    public Material material;
+    public Material material; // 원래의 Material
 
+    private Material instanceMaterial; // 개별 오브젝트에 사용할 Material 인스턴스
     private Color defaultColor; // 초기 색상 저장
     private Color highlightColor = new Color(0, 0, 0, 0.5f); // 반투명 검정색 (50% 투명도)
     private static FCP_ExampleScript currentlySelected; // 현재 선택된 오브젝트
@@ -15,11 +16,15 @@ public class FCP_ExampleScript : MonoBehaviour
         // FlexibleColorPicker 찾기
         fcp = GameObject.FindWithTag("FCP").GetComponent<FlexibleColorPicker>();
 
+        // Material의 인스턴스 생성
+        instanceMaterial = new Material(material);
+        GetComponent<Renderer>().material = instanceMaterial;
+
         // 초기 색상 설정
         if (gameObject.CompareTag("Fluid"))
         {
             // Fluid 태그는 항상 투명도 72% 유지
-            defaultColor = material.GetColor("_Color"); // Fluid의 초기 색상
+            defaultColor = instanceMaterial.GetColor("_Color");
             SetFluidColor(defaultColor);
         }
         else
@@ -27,7 +32,7 @@ public class FCP_ExampleScript : MonoBehaviour
             // 일반 오브젝트는 불투명 흰색으로 초기화
             defaultColor = Color.white;
             SetOpaqueMaterial();
-            material.color = defaultColor;
+            instanceMaterial.color = defaultColor;
         }
 
         // FlexibleColorPicker 초기화
@@ -48,10 +53,9 @@ public class FCP_ExampleScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // 트리거도 감지하도록 설정
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Collide))
             {
-                // 선택된 오브젝트가 현재 스크립트를 가진 오브젝트인지 확인
+                // 클릭한 오브젝트가 현재 오브젝트인지 확인
                 if (hit.collider.gameObject == gameObject)
                 {
                     SelectObject();
@@ -71,18 +75,22 @@ public class FCP_ExampleScript : MonoBehaviour
         // 현재 오브젝트를 선택
         currentlySelected = this;
 
+        // FlexibleColorPicker 리스너 초기화
+        fcp.onColorChange.RemoveAllListeners();
+        fcp.onColorChange.AddListener(OnChangeColor);
+
         // FlexibleColorPicker 색상 동기화
         fcp.color = defaultColor;
 
         // 하이라이트 색상 적용
         if (gameObject.CompareTag("Fluid"))
         {
-            SetFluidColor(highlightColor); // Fluid 태그의 경우 tint 컬러 변경
+            SetFluidColor(highlightColor);
         }
         else
         {
             SetTransparentMaterial();
-            material.color = highlightColor; // 일반 오브젝트의 하이라이트 적용
+            instanceMaterial.color = highlightColor;
         }
     }
 
@@ -91,65 +99,62 @@ public class FCP_ExampleScript : MonoBehaviour
         // 선택 해제 시 기본 상태 복구
         if (gameObject.CompareTag("Fluid"))
         {
-            SetFluidColor(defaultColor); // Fluid 태그의 tint 컬러 복구
+            SetFluidColor(defaultColor);
         }
         else
         {
             SetOpaqueMaterial();
-            material.color = defaultColor; // 일반 오브젝트의 색상 복구
+            instanceMaterial.color = defaultColor;
         }
     }
 
     private void OnChangeColor(Color co)
     {
-        // FlexibleColorPicker에서 선택된 색상을 적용
+        // 현재 선택된 오브젝트의 색상 변경
         if (currentlySelected == this)
         {
             if (gameObject.CompareTag("Fluid"))
             {
                 SetFluidColor(co);
-                defaultColor = co; // 기본 색상 업데이트
+                defaultColor = co;
             }
             else
             {
-                SetOpaqueMaterial(); // 불투명 모드로 전환
-                material.color = co;
-                defaultColor = co; // 기본 색상 업데이트
+                SetOpaqueMaterial();
+                instanceMaterial.color = co;
+                defaultColor = co;
             }
         }
     }
 
     private void SetFluidColor(Color baseColor)
     {
-        // Fluid 태그의 컬러와 투명도를 설정
         Color fluidColor = baseColor;
         fluidColor.a = fluidAlpha; // 투명도 72% 유지
-        material.SetColor("_Color", fluidColor);
+        instanceMaterial.SetColor("_Color", fluidColor);
     }
 
     private void SetTransparentMaterial()
     {
-        // Material을 투명 모드로 설정
-        material.SetOverrideTag("RenderType", "Transparent");
-        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        material.SetInt("_ZWrite", 0);
-        material.DisableKeyword("_ALPHATEST_ON");
-        material.EnableKeyword("_ALPHABLEND_ON");
-        material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        material.renderQueue = 3000; // Transparent Queue
+        instanceMaterial.SetOverrideTag("RenderType", "Transparent");
+        instanceMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        instanceMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        instanceMaterial.SetInt("_ZWrite", 0);
+        instanceMaterial.DisableKeyword("_ALPHATEST_ON");
+        instanceMaterial.EnableKeyword("_ALPHABLEND_ON");
+        instanceMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        instanceMaterial.renderQueue = 3000;
     }
 
     private void SetOpaqueMaterial()
     {
-        // Material을 불투명 모드로 설정
-        material.SetOverrideTag("RenderType", "Opaque");
-        material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
-        material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
-        material.SetInt("_ZWrite", 1);
-        material.DisableKeyword("_ALPHATEST_ON");
-        material.DisableKeyword("_ALPHABLEND_ON");
-        material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-        material.renderQueue = 2000; // Opaque Queue
+        instanceMaterial.SetOverrideTag("RenderType", "Opaque");
+        instanceMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+        instanceMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+        instanceMaterial.SetInt("_ZWrite", 1);
+        instanceMaterial.DisableKeyword("_ALPHATEST_ON");
+        instanceMaterial.DisableKeyword("_ALPHABLEND_ON");
+        instanceMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+        instanceMaterial.renderQueue = 2000;
     }
 }

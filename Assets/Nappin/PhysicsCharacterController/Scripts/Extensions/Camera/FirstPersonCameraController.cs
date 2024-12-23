@@ -21,6 +21,8 @@ namespace PhysicsCharacterController
         private float switchValueX;
         private float switchValueY;
 
+        public string layerToHide = "player";
+
 
         /**/
 

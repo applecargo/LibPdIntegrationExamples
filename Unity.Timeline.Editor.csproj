@@ -62,6 +62,7 @@
     <Analyzer Include="/Users/hoyouncho/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.0.5/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/inspectors/DirectorNamedColorInspector.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/inspectors/AnimationPlayableAssetInspector.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Actions/Menus/MenuItemActionBase.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Actions/TrackAction.cs" />
@@ -118,8 +119,8 @@
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Window/TimelineWindow_Gui.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Window/TimelineWindow_TimeCursor.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Analytics/TimelineAnalytics.cs" />
-    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/TimelineDragging.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/TimelineTreeView.cs" />
+    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/TimelineDragging.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Actions/Menus/TimelineContextMenu.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Utilities/CustomTrackDrawerAttribute.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Signals/SignalReceiverInspector.cs" />
@@ -286,8 +287,8 @@
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Manipulators/TimeAreaAutoPanner.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Signals/TreeView/SignalListFactory.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Playables/ControlPlayableInspector.cs" />
-    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/Manipulator.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Window/TimelineWindow_HeaderGui.cs" />
+    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/Manipulator.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/inspectors/ClipInspector/ClipInspectorSelectionInfo.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/DirectorStyles.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Manipulators/AddDelete/AddDeleteItemModeRipple.cs" />
@@ -315,7 +316,6 @@
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Manipulators/Move/MoveItemModeRipple.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Utilities/Scopes/GUIColorOverride.cs" />
     <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/treeview/ItemGui/TimelineClipGUI.cs" />
-    <Compile Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/inspectors/DirectorNamedColorInspector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library/PackageCache/com.unity.timeline@1.4.8/Editor/Unity.Timeline.Editor.asmdef" />

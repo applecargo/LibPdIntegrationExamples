@@ -79,6 +79,8 @@
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Utils/SelfDestruct.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Camera/FirstPersonCameraController.cs" />
     <Compile Include="Assets/Scripts/SpatialisationSceneScripts/CircleMotion.cs" />
+    <Compile Include="Assets/Scripts/Menu.cs" />
+    <Compile Include="Assets/Scripts/TimelineGenerator.cs" />
     <Compile Include="Assets/Scripts/ObjectSpawner.cs" />
     <Compile Include="Assets/Scripts/LibPdInstance.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
@@ -88,18 +90,21 @@
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/TouchPad.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/Joystick.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Input/LockCursor.cs" />
+    <Compile Include="Assets/Scripts/FloatingRawImage.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/CharacterManager.cs" />
     <Compile Include="Assets/FlexibleColorPicker/Scripts/FlexibleColorPicker.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/AnimatedController.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/MovingPlatform.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonUserControl.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/TiltInput.cs" />
+    <Compile Include="Assets/Scripts/ToolManager.cs" />
     <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/HideShowButtons.cs" />
     <Compile Include="Assets/Scripts/MidiSceneScripts/Midi2Unity.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/TrampolineSensor.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/uBuildManager.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/ResourcesExample.cs" />
+    <Compile Include="Assets/FlexibleColorPicker/ExampleScene/FCP_SceneScript.cs" />
     <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/Controller.cs" />
     <Compile Include="Assets/Scripts/Unity2LibPdSceneScripts/Button2Bang.cs" />
     <Compile Include="Assets/Scripts/PlayerPdController.cs" />
@@ -138,8 +143,6 @@
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/SpeedArea.cs" />
     <Compile Include="Assets/Scripts/PlayerJumpCrouch.cs" />
     <Compile Include="Assets/FlexibleColorPicker/ExampleScene/FCP_ExampleScript.cs" />
-    <Compile Include="Assets/Scripts/TimelineGenerator.cs" />
-    <Compile Include="Assets/Scripts/Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -957,9 +960,11 @@
     <ProjectReference Include="Unity.Timeline.Editor.csproj" />
     <ProjectReference Include="Unity.Timeline.csproj" />
     <ProjectReference Include="Unity.TextMeshPro.csproj" />
+    <ProjectReference Include="UnityUIExtensions.csproj" />
     <ProjectReference Include="Unity.InputSystem.csproj" />
     <ProjectReference Include="Unity.Rider.Editor.csproj" />
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj" />
+    <ProjectReference Include="UnityUIExtensions.editor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

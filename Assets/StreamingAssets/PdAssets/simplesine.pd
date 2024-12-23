@@ -11,7 +11,7 @@
 #X obj 42 27 loadbang;
 #X obj 42 48 random 1000;
 #X obj 42 69 + 300;
-#X msg 204 72 1 100;
+#X msg 204 72 0.3 100;
 #X connect 1 0 2 1;
 #X connect 1 1 3 1;
 #X connect 2 0 0 0;

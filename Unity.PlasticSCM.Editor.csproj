@@ -105,8 +105,8 @@
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/IncomingChanges/Gluon/IncomingChangesTreeView.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/IncomingChanges/Developer/IncomingChangesViewMenu.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/NewIncomingChanges.cs" />
-    <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Diff/Dialogs/GetRestorePathDialog.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/PendingChanges/PendingChangesTab_Operations.cs" />
+    <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Diff/Dialogs/GetRestorePathDialog.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Changesets/ChangesetsListView.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/AssetMenu/AssetMenuOperations.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/MetaPath.cs" />
@@ -201,11 +201,11 @@
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Branch/BranchesListHeaderState.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/ParentWindow.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/UI/EditorProgressBar.cs" />
-    <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Configuration/MissingEncryptionPasswordPromptHandler.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Configuration/CloudEdition/Welcome/WaitingSignInPanel.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Welcome/GetInstallerTmpFileName.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/PlasticConnectionMonitor.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/UI/UIElements/UIElementsExtensions.cs" />
+    <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Configuration/MissingEncryptionPasswordPromptHandler.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/UI/EditorDispatcher.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/Changesets/ChangesetsViewMenu.cs" />
     <Compile Include="Library/PackageCache/com.unity.collab-proxy@2.0.4/Editor/PlasticSCM/Views/History/SaveAction.cs" />

@@ -79,7 +79,7 @@ public class uBuildManager : MonoBehaviour {
 
 	private FCP_ExampleScript previousFCPScript;
 
-	public int fluidCount, rubbleCount, slopeCount, speedAreaCount, stairCount, terrainCount, fogCount, grassCount, treeCount = 0;
+	public int fluidCount, rubbleCount, slopeCount, speedAreaCount, stairCount, terrainCount, fogCount, grassCount, treeCount, rockCount = 0;
 
 	void Awake()
 	{
@@ -132,7 +132,8 @@ public class uBuildManager : MonoBehaviour {
 				if(hit.collider != null)
 				{
 					//check if we're placing a piece
-					if(isPlacing){
+					if(isPlacing)
+					{
 					Vector3 pos = Vector3.zero;	
 					Vector3 objectScale = currentObject.GetComponent<PieceTrigger>().scale;
 				
@@ -263,89 +264,90 @@ public class uBuildManager : MonoBehaviour {
 					//cancel placing when key is pressed
 					if(Input.GetKeyDown("delete"))
 						cancel();
-				
-					//update piece rotation
-					updateRotation();
+
+
+                        //update piece rotation
+                        updateRotation();
 					}
-					else
+				else
+				{
+					if(mobileButtons == null)
 					{
-						if(mobileButtons == null)
+						//if(Input.GetMouseButtonDown(0) && hit.collider.gameObject.CompareTag("Piece") && !EventSystem.current.IsPointerOverGameObject())
+						if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.name == "platform" && !EventSystem.current.IsPointerOverGameObject())
 						{
-							//if(Input.GetMouseButtonDown(0) && hit.collider.gameObject.CompareTag("Piece") && !EventSystem.current.IsPointerOverGameObject())
-							if (Input.GetMouseButtonDown(0) && hit.collider.gameObject.name == "platform" && !EventSystem.current.IsPointerOverGameObject())
-							{
-								pieceSelected = hit.collider.gameObject;
-								//set piece color to selected color
+							pieceSelected = hit.collider.gameObject;
+							//set piece color to selected color
+						//	setRendererSettings(hit.collider.gameObject, null, selected);
+						}			
+					}
+					else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+					{
+						//if not placing a piece, use mouse button to select pieces
+						//if(hit.collider.gameObject.CompareTag("Piece"))
+						if (hit.collider.gameObject.name == "platform")
+						{
+							pieceSelected = hit.collider.gameObject;
+							//set piece color to selected color
 							//	setRendererSettings(hit.collider.gameObject, null, selected);
-							}			
 						}
-						else if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+						else
 						{
-							//if not placing a piece, use mouse button to select pieces
-							//if(hit.collider.gameObject.CompareTag("Piece"))
-							if (hit.collider.gameObject.name == "platform")
-							{
-								pieceSelected = hit.collider.gameObject;
-								//set piece color to selected color
-								//	setRendererSettings(hit.collider.gameObject, null, selected);
-							}
-							else
-							{
-								pieceSelected = null;      
-							}
-						}
-				
-						//if there is a selected piece
-						if(pieceSelected != null)
-						{
-							int type = pieceSelected.GetComponent<PieceTrigger>().type;
-					
-							//check if we want to duplicate the piece
-							if(Input.GetKeyDown(KeyCode.LeftControl))
-							{
-						
-								//PlayerPrefs.SetFloat(index + " - " + pieces[type].resource, PlayerPrefs.GetFloat(index + " - " + pieces[type].resource) - pieces[type].resourceAmount);
-						
-								//instantiate selected piece to duplicate it
-								currentObject = Instantiate(pieceSelected, pieceSelected.transform.position, pieceSelected.transform.rotation) as GameObject;
-								//disable collider temporarily
-								currentObject.GetComponentInChildren<Collider>().enabled = false;
-								//make piece untagged
-								currentObject.tag = "Untagged";
-								//if(currentObject.GetComponent<PieceTrigger>().layer != 0)
-								//{
-								//	//add the duplicate to it's layer
-								//	GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Add(currentObject);
-							 //   }
-
-								//start placing duplicate
-								isPlacing = true;
-								pieceSelected = null;
-						}
-		
-							//check if we want to move the piece
-							if(Input.GetKeyDown("m"))
-							{
-								//set piece to selected piece to move it
-								currentObject = pieceSelected;
-								//disable collider temporarily
-								currentObject.GetComponentInChildren<Collider>().enabled = false;
-
-								//make piece untagged
-								currentObject.tag = "Untagged";
-								//start moving piece
-								isPlacing = true;
-								pieceSelected = null;
-							}
-							//check if we want to remove piece
-							if(Input.GetKeyDown(KeyCode.R)) //if(Input.GetKeyDown("delete"))
-								Delete();	
-					
-							//deselect piece with right mouse button
-							if(Input.GetMouseButtonDown(1))
-								pieceSelected = null;
+							pieceSelected = null;      
 						}
 					}
+				
+					//if there is a selected piece
+					if(pieceSelected != null)
+					{
+						int type = pieceSelected.GetComponent<PieceTrigger>().type;
+					
+						//check if we want to duplicate the piece
+						if(Input.GetKeyDown(KeyCode.LeftControl))
+						{
+						
+							//PlayerPrefs.SetFloat(index + " - " + pieces[type].resource, PlayerPrefs.GetFloat(index + " - " + pieces[type].resource) - pieces[type].resourceAmount);
+						
+							//instantiate selected piece to duplicate it
+							currentObject = Instantiate(pieceSelected, pieceSelected.transform.position, pieceSelected.transform.rotation) as GameObject;
+							//disable collider temporarily
+							currentObject.GetComponentInChildren<Collider>().enabled = false;
+							//make piece untagged
+							currentObject.tag = "Untagged";
+							//if(currentObject.GetComponent<PieceTrigger>().layer != 0)
+							//{
+							//	//add the duplicate to it's layer
+							//	GetComponent<Layers>().layers[currentObject.GetComponent<PieceTrigger>().layer - 1].layerPieces.Add(currentObject);
+							//   }
+
+							//start placing duplicate
+							isPlacing = true;
+							pieceSelected = null;
+					}
+		
+						//check if we want to move the piece
+						if(Input.GetKeyDown("m"))
+						{
+							//set piece to selected piece to move it
+							currentObject = pieceSelected;
+							//disable collider temporarily
+							currentObject.GetComponentInChildren<Collider>().enabled = false;
+
+							//make piece untagged
+							currentObject.tag = "Untagged";
+							//start moving piece
+							isPlacing = true;
+							pieceSelected = null;
+						}
+						//check if we want to remove piece
+						if(Input.GetKeyDown(KeyCode.R)) //if(Input.GetKeyDown("delete"))
+							Delete();	
+					
+						//deselect piece with right mouse button
+						if(Input.GetMouseButtonDown(1))
+							pieceSelected = null;
+					}
+				}
 			}
 		}
 		
@@ -410,6 +412,7 @@ public class uBuildManager : MonoBehaviour {
 	
 	void updateRotation()
 	{
+		Debug.Log("hi");
 		//if right mouse button gets pressed, rotate the piece 90 degrees
 		//please do not change the rotation angle, this will disturb floor placement
 		if((mobileButtons != null && Input.GetMouseButtonDown(0) && Input.touchCount > 1) || Input.GetMouseButtonDown(1))
@@ -522,6 +525,19 @@ public class uBuildManager : MonoBehaviour {
 	
 	IEnumerator place()
 	{
+		// 충돌 감지를 위한 변수
+		float detectionRadius = 0.5f; // 감지 반경 조정 가능
+		LayerMask playerLayer = LayerMask.GetMask("player"); // Player 레이어 설정
+
+		// 현재 위치에서 플레이어와의 충돌 확인
+		Collider[] colliders = Physics.OverlapSphere(currentObject.transform.position, detectionRadius, playerLayer);
+		if (colliders.Length > 0)
+		{
+			Debug.Log("Cannot place object here. Colliding with player.");
+			cancel(); // 충돌 시 배치 취소
+			yield break;
+		}
+
 		//set piece color to white
 		// setRendererSettings(currentObject, null, Color.white);
 		//enable piece collider
@@ -577,6 +593,10 @@ public class uBuildManager : MonoBehaviour {
 		if(pieces[selectedPiece].prefab.name == "ObjTree")
 		{
 			treeCount++;
+		}
+		if (pieces[selectedPiece].prefab.name == "ObjRock")
+		{
+			rockCount++;
 		}
 	}
 	
