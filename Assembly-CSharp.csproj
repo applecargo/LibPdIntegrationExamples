@@ -970,6 +970,9 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj" />
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj" />
     <ProjectReference Include="UnityUIExtensions.editor.csproj" />
+    <ProjectReference Include="Unity.Recorder.Editor.csproj" />
+    <ProjectReference Include="Unity.Recorder.csproj" />
+    <ProjectReference Include="Unity.Recorder.Base.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

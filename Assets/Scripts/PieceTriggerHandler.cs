@@ -11,11 +11,10 @@ public class PieceTriggerHandler : MonoBehaviour
     // Start is called before the first frame update
     public LibPdInstance pdPatch;
     public uBuildManager uBuild;
-    public TimelineGenerator timelineGenerator;
+    //public TimelineGenerator timelineGenerator;
     private string receiver = "platform";
 
-    // 여러 개의 RawImage 프리팹을 저장할 리스트
-    public List<GameObject> rawImages = new List<GameObject>(9);
+    //public List<GameObject> rawImages = new List<GameObject>(9);
     // RawImage가 생성될 위치에 있는 게임오브젝트들 (씬에 배치되어 있어야 함)
     // public List<Transform> spawnLocations = new List<Transform>(9);
 
@@ -64,7 +63,7 @@ public class PieceTriggerHandler : MonoBehaviour
 
             // RawImage someRawImage = uBuild.pieces[2].image;
             // AddRawImage(someRawImage);
-            timelineGenerator.AddRawImage(rawImages[2]);
+            //timelineGenerator.AddRawImage(rawImages[2]);
             // Debug.Log(rawImages[1]);
             // Debug.Log(rawImages[1].name);
         }
@@ -73,7 +72,7 @@ public class PieceTriggerHandler : MonoBehaviour
             Debug.Log("Fluid!!");
             object[] args = {"Fluid", 1, uBuild.fluidCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[1]);
+            //timelineGenerator.AddRawImage(rawImages[1]);
 
         }
         if (other.CompareTag("Rubble"))
@@ -81,7 +80,7 @@ public class PieceTriggerHandler : MonoBehaviour
             Debug.Log("Rubble!!");
             object[] args = {"Rubble", 1, uBuild.rubbleCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[5]);
+            //timelineGenerator.AddRawImage(rawImages[5]);
 
         }
         if (other.CompareTag("Slope"))
@@ -89,7 +88,7 @@ public class PieceTriggerHandler : MonoBehaviour
             Debug.Log("Slope!!");
             object[] args = {"Slope", 1, uBuild.slopeCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[0]);
+            //timelineGenerator.AddRawImage(rawImages[0]);
 
         }
         if (other.CompareTag("SpeedArea"))
@@ -97,7 +96,7 @@ public class PieceTriggerHandler : MonoBehaviour
             Debug.Log("SpeedArea!!");
             object[] args = {"SpeedArea", 1, uBuild.speedAreaCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[3]);
+            //timelineGenerator.AddRawImage(rawImages[3]);
 
         }
         if (other.CompareTag("Terrain"))
@@ -105,28 +104,28 @@ public class PieceTriggerHandler : MonoBehaviour
             Debug.Log("Terrain!!");
             object[] args = {"Terrain", 1, uBuild.terrainCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[4]);
+            //timelineGenerator.AddRawImage(rawImages[4]);
         }
         if (other.CompareTag("Fog"))
         {
             Debug.Log("Fog!!");
             object[] args = {"Fog", 1, uBuild.fogCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[8]);
+            //timelineGenerator.AddRawImage(rawImages[8]);
         }
         if (other.CompareTag("Grass"))
         {
             Debug.Log("Grass!!");
             object[] args = {"Grass", 1, uBuild.grassCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[7]);
+            //timelineGenerator.AddRawImage(rawImages[7]);
         }
         if (other.CompareTag("Tree"))
         {
             Debug.Log("Tree!!");
             object[] args = {"Tree", 1, uBuild.treeCount};
             pdPatch.SendList(receiver, args);
-            timelineGenerator.AddRawImage(rawImages[6]);
+            //timelineGenerator.AddRawImage(rawImages[6]);
         }
     }
 
