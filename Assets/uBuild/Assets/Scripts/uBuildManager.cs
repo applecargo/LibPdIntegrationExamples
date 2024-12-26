@@ -412,7 +412,6 @@ public class uBuildManager : MonoBehaviour {
 	
 	void updateRotation()
 	{
-		Debug.Log("hi");
 		//if right mouse button gets pressed, rotate the piece 90 degrees
 		//please do not change the rotation angle, this will disturb floor placement
 		if((mobileButtons != null && Input.GetMouseButtonDown(0) && Input.touchCount > 1) || Input.GetMouseButtonDown(1))

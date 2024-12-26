@@ -28,7 +28,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp/bin/Debug/</OutputPath>
-    <DefineConstants>UNITY_2020_3_48;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;CROSS_PLATFORM_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2020_3_48;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;CROSS_PLATFORM_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169;USG0001</NoWarn>
@@ -55,7 +55,7 @@
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
     <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>StandaloneOSX:2</UnityBuildTarget>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.48f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -67,6 +67,7 @@
     <Compile Include="Assets/FlexibleColorPicker/Scripts/FCP_Persistence.cs" />
     <Compile Include="Assets/PlayerGridBuilder/Scripts/InputManager.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/PieceButton.cs" />
+    <Compile Include="Assets/Images/Aude Le Luel/Retro OS UI Pack/Scripts/Inventory.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/ButtonHandler.cs" />
     <Compile Include="Assets/PlayerGridBuilder/Scripts/BuildSystem.cs" />
     <Compile Include="Assets/PlayerGridBuilder/Scripts/PlayerController.cs" />
@@ -86,7 +87,9 @@
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/PlayerGridBuilder/Scripts/Buildable.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Utils/VFXManager.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/CameraPosition.cs" />
     <Compile Include="Assets/Models/Kaira_DA/3D Smoke&amp;Fog Pack/Scripts/FogSettingsLocal.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/HideImage.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/TouchPad.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/Joystick.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Input/LockCursor.cs" />
@@ -98,20 +101,20 @@
     <Compile Include="Assets/uBuild/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonUserControl.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/TiltInput.cs" />
     <Compile Include="Assets/Scripts/ToolManager.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/HideShowButtons.cs" />
     <Compile Include="Assets/Scripts/MidiSceneScripts/Midi2Unity.cs" />
+    <Compile Include="Assets/Images/Aude Le Luel/Retro OS UI Pack/Scripts/CursorManager.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/TrampolineSensor.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/uBuildManager.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/Cursors.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/PlatformSpecific/StandaloneInput.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/ResourcesExample.cs" />
     <Compile Include="Assets/FlexibleColorPicker/ExampleScene/FCP_SceneScript.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/Controller.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/HideShowButtons.cs" />
     <Compile Include="Assets/Scripts/Unity2LibPdSceneScripts/Button2Bang.cs" />
     <Compile Include="Assets/Scripts/PlayerPdController.cs" />
     <Compile Include="Assets/Scripts/PieceTriggerHandler.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Utils/Shooter.cs" />
     <Compile Include="Assets/FlexibleColorPicker/Scripts/FCP_SpriteMeshEditor.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/Buttons.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/Ladder.cs" />
     <Compile Include="Assets/Models/Kaira_DA/3D Smoke&amp;Fog Pack/Character/PlayerController.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Input/MovementActions.cs" />
@@ -120,13 +123,13 @@
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/TrampolinePlatform.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/GravityArea.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Input/InputReader.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/CameraPosition.cs" />
     <Compile Include="Assets/ModularFirstPersonController/FirstPersonController/FirstPersonController.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/ClimbArea.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/PieceTrigger.cs" />
+    <Compile Include="Assets/Images/Aude Le Luel/Retro OS UI Pack/Scripts/Popup.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Utils/ToggleController.cs" />
     <Compile Include="Assets/Scripts/New/GameController.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/Cursors.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/Buttons.cs" />
     <Compile Include="Assets/Models/Kaira_DA/3D Smoke&amp;Fog Pack/Scripts/FogSettings.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/Door.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs" />
@@ -136,11 +139,12 @@
     <Compile Include="Assets/Scripts/MidiSceneScripts/Button2Midi.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/MobileControlRig.cs" />
-    <Compile Include="Assets/Models/Animated Trees Package/DemoSceneContent/HideImage.cs" />
     <Compile Include="Assets/uBuild/Standard Assets/CrossPlatformInput/Scripts/AxisTouchButton.cs" />
     <Compile Include="Assets/Scripts/Unity2LibPdSceneScripts/Proximity2Float.cs" />
     <Compile Include="Assets/uBuild/Assets/Scripts/Layers.cs" />
     <Compile Include="Assets/Nappin/PhysicsCharacterController/Scripts/Extensions/Platforms/SpeedArea.cs" />
+    <Compile Include="Assets/Images/Aude Le Luel/Retro OS UI Pack/Scripts/TabButton.cs" />
+    <Compile Include="Assets/Models/Animated Trees Package/Demo Scene Contents/Controller.cs" />
     <Compile Include="Assets/Scripts/PlayerJumpCrouch.cs" />
     <Compile Include="Assets/FlexibleColorPicker/ExampleScene/FCP_ExampleScript.cs" />
   </ItemGroup>
@@ -167,6 +171,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/01-Readme First.txt" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+    <None Include="Assets/Images/Aude Le Luel/Retro OS UI Pack/Fonts/Sources/OFL.txt" />
     <None Include="Assets/FlexibleColorPicker/Materials/FCP_Gradient.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/05-Readme LibPd2UnityScene.txt" />
